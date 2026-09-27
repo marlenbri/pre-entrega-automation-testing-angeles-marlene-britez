@@ -30,4 +30,4 @@ def test_login_correcto():
    assert titulo_inventario.text == "Products"
    
  finally:
-   driver.quit()
+  driver.quit()
