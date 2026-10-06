@@ -101,7 +101,7 @@ Validaciones del carrito:
 
 04_test_adicionales.py (Son casos de prueba adicionales)
 Se agregaron validaciones extra para ampliar la cobertura del módulo de login:
-- Validar que el sistema permita iniciar sesión únicamente con credenciales válidas.
+- Validar que el sistema no permita iniciar sesión con credenciales inválidas.
 - Validar que no permita iniciar sesión sin ingresar contraseña.
 - Validar que no permita iniciar sesión sin ingresar usuario.
 
