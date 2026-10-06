@@ -3,15 +3,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+from utils.helpers import captura_error, captura_ok
+import time
 
 def test_login_correcto():
- options = Options()
- options.add_argument('--start-maximized')
- 
- driver = webdriver.Chrome(options=options)
-
  try: 
+   options = Options()
+   options.add_argument('--start-maximized')
+   driver = webdriver.Chrome(options=options)
    driver.get("https://www.saucedemo.com")
    
    #Ingresar credenciales correctas
@@ -28,6 +27,16 @@ def test_login_correcto():
    
    titulo_inventario = driver.find_element(By.CLASS_NAME, "title")
    assert titulo_inventario.text == "Products"
-   
+   #Validar Ok del test
+   captura_ok(driver, "test_login_correcto")
+ 
+ except Exception:
+   captura_error(driver, "test_login_correcto")
+   raise
+  
  finally:
+  time.sleep(5)
   driver.quit()
+
+
+
